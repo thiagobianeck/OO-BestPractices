@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public class Divida {
 
     private double total;
     private double valorPago;
     private String credor;
     private String cnpjCredor;
+    private ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
+
 
     public double getTotal() {
         return total;
@@ -31,6 +35,10 @@ public class Divida {
 
     public void setCnpjCredor(String cnpjCredor) {
         this.cnpjCredor = cnpjCredor;
+    }
+
+    public ArrayList<Pagamento> getPagamentos() {
+        return pagamentos;
     }
 
     public void paga(double valor) {
