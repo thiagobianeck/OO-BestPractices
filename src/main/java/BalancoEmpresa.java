@@ -17,10 +17,7 @@ public class BalancoEmpresa {
         Divida divida = dividas.get(cnpjCredor);
 
         if(divida != null) {
-            if (valor > 100) {
-                valor -= 8;
-            }
-            divida.setValorPago(divida.getValorPago() + valor);
+            divida.paga(valor);
         }
     }
 }
