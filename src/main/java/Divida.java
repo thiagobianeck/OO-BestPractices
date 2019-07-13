@@ -41,7 +41,7 @@ public class Divida {
         return pagamentos;
     }
 
-    public void paga(double valor) {
+    private void paga(double valor) {
 
         if (valor < 0) {
             throw new IllegalArgumentException("Valor inválido para pagamento");
@@ -50,5 +50,11 @@ public class Divida {
             valor -= 8;
         }
         this.valorPago += valor;
+    }
+
+    public void registra(Pagamento pagamento) {
+        this.pagamentos.add(pagamento);
+        this.paga(pagamento.getValor());
+
     }
 }
