@@ -11,14 +11,10 @@ public class TestaPagamentos {
         Pagamento pagamento2 = new Pagamento();
         pagamento2.setValor(25);
 
-        pagamentos.add(pagamento1);
-        pagamentos.add(pagamento2);
+        pagamentos.registra(pagamento1);
+        pagamentos.registra(pagamento2);
 
         System.out.println("Valor Total pago: " + pagamentos.getValorPago());
-
-        Pagamentos pagamentos2 = new Pagamentos();
-        pagamentos2.addAll(Arrays.asList(pagamento1, pagamento2));
-        System.out.println("Valor Total pago em pagamentos2: " + pagamentos2.getValorPago());
 
     }
 }
