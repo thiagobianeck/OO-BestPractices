@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Divida {
 
@@ -8,6 +9,60 @@ public class Divida {
     private String cnpjCredor;
     private ArrayList<Pagamento> pagamentos = new ArrayList<Pagamento>();
 
+    public boolean cnpjValido() {
+        return primeiroDigitoVerificadorDoCnpj() == primeiroDigitoCorretoParaCnpj()
+                && segundoDigitoVerificadorDoCnpj() == segundoDigitoCorretoParaCnpj();
+    }
+
+    private int segundoDigitoCorretoParaCnpj() {
+        // TODO implementar
+        return 2;
+    }
+
+    private int segundoDigitoVerificadorDoCnpj() {
+        // TODO implementar
+        return 2;
+    }
+
+    private int primeiroDigitoCorretoParaCnpj() {
+        // TODO implementar
+        return 2;
+    }
+
+    private int primeiroDigitoVerificadorDoCnpj() {
+        // TODO implementar
+        return 2;
+    }
+
+    public ArrayList<Pagamento> pagamentosAntesDe(Calendar data) {
+        ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+        for(Pagamento pagamento : this.pagamentos) {
+            if (pagamento.getData().before(data)){
+                pagamentosFiltrados.add(pagamento);
+            }
+        }
+        return pagamentosFiltrados;
+    }
+
+    public ArrayList<Pagamento> pagamentosDo(String cnpjPagador) {
+        ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+        for(Pagamento pagamento : this.pagamentos) {
+            if (pagamento.getCnpjPagador().equals(cnpjPagador)){
+                pagamentosFiltrados.add(pagamento);
+            }
+        }
+        return pagamentosFiltrados;
+    }
+
+    public ArrayList<Pagamento> pagamentosComValorMaiorQue(double valorMinimo) {
+        ArrayList<Pagamento> pagamentosFiltrados = new ArrayList<Pagamento>();
+        for(Pagamento pagamento : this.pagamentos) {
+            if (pagamento.getValor() > valorMinimo){
+                pagamentosFiltrados.add(pagamento);
+            }
+        }
+        return pagamentosFiltrados;
+    }
 
     public double getTotal() {
         return total;
