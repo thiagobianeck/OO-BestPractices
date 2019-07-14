@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Cnpj {
 
     private String valor;
@@ -33,5 +35,21 @@ public class Cnpj {
     private int primeiroDigitoVerificador() {
         // TODO implementar
         return 2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cnpj cnpj = (Cnpj) o;
+
+        return valor.equals(cnpj.valor);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return valor.hashCode();
     }
 }
