@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.HashSet;
 
-public class Pagamentos extends ArrayList<Pagamento> {
+public class Pagamentos extends HashSet<Pagamento> {
 
     private double valorPago;
 
@@ -19,6 +21,18 @@ public class Pagamentos extends ArrayList<Pagamento> {
     public void registra(Pagamento pagamento) {
         this.add(pagamento);
         this.paga(pagamento.getValor());
+    }
+
+    @Override
+    public boolean add(Pagamento pagamento) {
+        this.paga(pagamento.getValor());
+        return super.add(pagamento);
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends Pagamento> c) {
+
+        return super.addAll(c);
     }
 
     public double getValorPago() {
